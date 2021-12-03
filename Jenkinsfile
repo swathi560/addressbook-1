@@ -26,10 +26,8 @@ pipeline{
             always{
                  echo "Testing is completed"
             }
-           
-        }
-        }
-        
+                   }
+        }        
         stage("Package"){
             when{
                 expression{
