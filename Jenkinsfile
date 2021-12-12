@@ -59,12 +59,28 @@ pipeline{
               }
              }
         }
+<<<<<<< HEAD
 
 	stage("Deploy")
 	{
 	when{
 	expression{
 	BRANCH_NAME == 'master'
+=======
+        stage("Deploy"){
+            when{
+                expression{
+                    BRANCH_NAME == 'master'
+                }
+            }
+             steps{
+                script{
+                  echo "Deploy the app"
+                 
+              }
+             }
+        }
+>>>>>>> c4266d3abb2efff61d7a215c583a87a1c0d805c5
     }
     }
 
