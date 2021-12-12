@@ -1,6 +1,12 @@
 pipeline{
     agent any
-    parameters{
+    tools{
+      maven 'mymaven'
+      JDK 'myjava'
+
+    }
+    parameters
+    {
       string(name: 'VERSION',defaultValue:"",description:'version to deploy')
       choice(name:'VERSION',choices:['1.1.0','1.2.0','1.3.0'])
       booleanParam(name:'executeTests',defaultValue:true,description:"Testcases")
@@ -13,6 +19,7 @@ pipeline{
             steps{
               script{
                  echo "Compiling the code"
+		 sh 'mvn compile'
               }
             }
         }
@@ -20,31 +27,29 @@ pipeline{
              steps{
                 script{
                   echo "Testing the code"
+		  sh 'mvn test'
               }
              }
 
+post {
+always{
+junit 'target/surefire-reports/*.xml'
 
-        post {
-	always {
-	echo "Testing is completed"
-        }
-	
 }
 }
+
+
+        
+	}
 
 
         stage("Package"){
-
-	when{
-            expression{
-              params.executeTests == true
-            }
-             
-	     }
+            
 
 	     steps{
                 script{
-                  echo "Packaging the code ${NEW_VERSION}"
+                  echo "Packaging the code"
+		  sh 'mvn package'
 
               }
              }
