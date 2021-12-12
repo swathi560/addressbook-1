@@ -18,10 +18,17 @@ pipeline{
               }
              }
         }
+	post {
+	always{
+	echo "Testing is completed"
+	}
+	}
+
         stage("Package"){
              steps{
                 script{
                   echo "Packaging the code ${NEW_VERSION}"
+
               }
              }
         }
