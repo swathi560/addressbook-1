@@ -59,15 +59,15 @@ pipeline{
               }
              }
         }
-<<<<<<< HEAD
 
-	stage("Deploy")
-	{
-	when{
-	expression{
-	BRANCH_NAME == 'master'
-=======
-        stage("Deploy"){
+
+
+
+
+
+
+
+ stage("Deploy"){
             when{
                 expression{
                     BRANCH_NAME == 'master'
@@ -80,16 +80,16 @@ pipeline{
               }
              }
         }
->>>>>>> c4266d3abb2efff61d7a215c583a87a1c0d805c5
-    }
-    }
 
-steps{
-scripts{
-echo "Deploy the app"
-}
-}
-}
-}
-}
+
+
+
+
+
+
+
+
+
+
+
 
