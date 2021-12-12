@@ -3,7 +3,7 @@ pipeline{
     tools{
 
       maven 'mymaven'
-      JDK 'myjava'
+      jdk 'myjava'
 
     }
     parameters
