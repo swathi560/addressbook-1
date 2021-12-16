@@ -75,9 +75,14 @@ pipeline{
           }
         }
         stage("Deploy the docker container"){
-          echo "deploying the app"
-          sh sudo 'docker run -itd -P swadarsh560/image:$BUILD_NUMBER'
+          
+	  steps{
+	  script{
+	  echo "deploying the app"
+          sh 'sudo docker run -itd -P swadarsh560/image:$BUILD_NUMBER'
         }
     }
     }
+}
+}
 
