@@ -69,7 +69,7 @@ pipeline{
               withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
          sh 'sudo docker build -t swadarsh560/image:$BUILD_NUMBER .'
          sh 'sudo docker login  -u $USER -p $PASS'
-         sh 'sudo 'docker push swadarsh560/image:$BUILD_NUMBER'
+         sh 'sudo docker push swadarsh560/image:$BUILD_NUMBER'
 }
             }
           }
